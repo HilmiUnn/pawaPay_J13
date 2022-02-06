@@ -1,38 +1,17 @@
 package com.pawaPay.tests;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit5.TextReportExtension;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @ExtendWith({TextReportExtension.class})
-public class homePageTests {
-
-    @BeforeAll
-    static void setupAllureReports() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-    }
-
-    @BeforeEach
-    public void config() {
-        Configuration.browser = "chrome";
-        Configuration.baseUrl = "https://www.pawapay.co.uk";
-        Configuration.reportsFolder = "test-result/screenshots";
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
-    }
-
-
+public class homePageTests extends TestBase {
 
     /**
     *This test checks "Get API access" button function,

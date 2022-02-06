@@ -3,11 +3,9 @@ package com.pawaPay.tests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.junit5.TextReportExtension;
-import net.jodah.failsafe.internal.util.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.*;
