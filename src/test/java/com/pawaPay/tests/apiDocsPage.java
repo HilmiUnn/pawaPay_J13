@@ -16,7 +16,7 @@ public class apiDocsPage extends TestBase {
     /**
      *This test checks the search function at the API Docs page,
      *
-     * Note:There is no need to use, Thread.sleep, I just used to show click action gets related part to view
+     * Note:There is no need to use, Thread.sleep,  I just used to show click action gets related part to view
      *
      */
     @Test
