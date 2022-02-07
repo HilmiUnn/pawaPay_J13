@@ -1,6 +1,6 @@
 package com.pawaPay.tests;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.*;
@@ -8,14 +8,18 @@ import static com.codeborne.selenide.Condition.*;
 import com.codeborne.selenide.junit5.TextReportExtension;
 import static com.codeborne.selenide.WebDriverConditions.*;
 
+
 @ExtendWith({TextReportExtension.class})
 public class aboutPageTests extends TestBase {
 
     /**
      *This test checks Logo's functionality ,
      *the user expects to be redirected to home page after clicking on it'
+     *
+     * No need to repeat, I just used it to show as an example
      */
-    @Test
+    @DisplayName("Logo function test at About page")
+    @RepeatedTest(value=2, name="{displayName} :: {currentRepetition} of {totalRepetitions}")
     public void checkLogoReturnsHomePage(){
         open("/");
         $(".header-nav-item.header-nav-item--collection").click();                      //About
@@ -30,6 +34,7 @@ public class aboutPageTests extends TestBase {
      *the user expects to be redirected to LinkedIn page of pawaPay'
      */
     @Test
+    @DisplayName("LinkedIn icon function test at the About page")
     public void LinkedInIconOnAboutPage(){
         open("/");
         $(".header-nav-item.header-nav-item--collection").click();                        //About
@@ -42,9 +47,12 @@ public class aboutPageTests extends TestBase {
     /**
      *This test checks address box which is located on about page
      *to be sure that includes "England" text
+     *
+     *Note: There is no need to use Thread.sleep, I just used to show scroll down
      */
 
     @Test
+    @DisplayName("Address Text Verification Test")
     public void checkAddressIncludesEngland() throws InterruptedException {
         open("/");
         $(".header-nav-item.header-nav-item--collection").click();                  //About

@@ -65,8 +65,39 @@
             <version>6.2.0</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-core</artifactId>
+            <version>3.0</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <properties>
+                        <configurationParameters>
+                            junit.jupiter.conditions.deactivate = *
+                            junit.jupiter.extensions.autodetection.enabled = true
+                            junit.jupiter.testinstance.lifecycle.default = per_class
+                            junit.jupiter.execution.parallel.enabled = true
+                            junit.jupiter.execution.parallel.mode.default = concurrent
+                            junit.jupiter.execution.parallel.mode.classes.default = same_thread
+                        </configurationParameters>
+                    </properties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

@@ -1,8 +1,8 @@
 package com.pawaPay.tests;
 
-
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.junit5.TextReportExtension;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.openqa.selenium.By;
@@ -17,9 +17,9 @@ public class apiDocsPage extends TestBase {
      *This test checks the search function at the API Docs page,
      *
      * Note:There is no need to use, Thread.sleep,  I just used to show click action gets related part to view
-     *
      */
     @Test
+    @DisplayName("Search Box test at API Docs page")
     public void searchBoxTest() throws InterruptedException {
         open("/");
         $(withText("API Docs")).click();
@@ -41,13 +41,13 @@ public class apiDocsPage extends TestBase {
      *
      */
     @Test
+    @DisplayName("Response part dropdown arrow tests")
     public void responseCodeArrowTest() throws InterruptedException {
         open("/");
         $(withText("API Docs")).click();
 
         for (int i = 1; i < 8; i++) {
             for (int j = 1; j < 6; j++) {
-
                 if ($(By.xpath("(//h3[@class='sc-gVgnHT dJYToW']/..)[" + i + "]/div[" + j + "]")).is(Condition.visible)) {
 
                     $(By.xpath("(//h3[@class='sc-gVgnHT dJYToW']/..)[" + i + "]/div[" + j + "]")).click();
@@ -68,6 +68,7 @@ public class apiDocsPage extends TestBase {
      * Note: There is no need to use Thread.sleep, I just used it to show opened dropdown
      */
     @Test
+    @DisplayName("API References Dropdowns Test")
     public void APIReferencesDropdownsExplanations() throws InterruptedException {
 
         open("/");
@@ -80,4 +81,6 @@ public class apiDocsPage extends TestBase {
         Thread.sleep(1000);
         assertTrue($(By.xpath("(//ul[@class='sc-XhUPp hYgdYI'])[3]")).isDisplayed());
     }
+
+
 }
